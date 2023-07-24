@@ -1,7 +1,6 @@
 package org.example.mongodb.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //@Document("courier_params") //"#{@environment.getProperty('kvv.spring.data.mongodb.collections.first')}"
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class CouriersSettings {
     //@Id
     ObjectId _id;

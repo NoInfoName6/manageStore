@@ -22,17 +22,8 @@ import java.util.Objects;
 @Configuration
 @EnableMongoRepositories(basePackages = "org.example.mongodb")
 @ComponentScan(basePackages = "org.example.mongodb")
-//@PropertySource("classpath:application.properties")
 @Data
 public class MongoConfig {
-    //@Value("${kvv.spring.data.mongodb.uri}")
-    //String uri;
-    //@Value ("${kvv.spring.data.mongodb.dbname}")
-    //nonull
-    //String dbName;
-    //@Value("${kvv.spring.data.mongodb.maxPoolSize}")
-    //add validation >0
-    //int maxPoolSize;
     @Autowired
     ConfigProp configProp;
 
@@ -51,4 +42,7 @@ public class MongoConfig {
     public MongoTemplate mongoTemplate() {
         return new MongoTemplate(mongo(), configProp.getDbName() );
     }
+
+    @Bean
+    public CouriersSettingsDao couriersSettingsDao(){return new CouriersSettingsDao();}
 }
