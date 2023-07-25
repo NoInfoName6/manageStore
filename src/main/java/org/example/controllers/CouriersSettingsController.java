@@ -1,11 +1,13 @@
 package org.example.controllers;
 
+import jakarta.validation.Valid;
 import org.example.mongodb.entity.CouriersSettings;
 import org.example.services.CouriersSettingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,7 +23,7 @@ public class CouriersSettingsController {
         return new ResponseEntity<>(couriersSettingsService.getAllTypeOfCouriersSetting(),HttpStatus.OK);
     }
     @PostMapping()
-    ResponseEntity<CouriersSettings> insertCSNewType (@RequestBody CouriersSettings couriersSettings){
+    ResponseEntity<CouriersSettings> insertCSNewType (@RequestBody @Valid CouriersSettings couriersSettings){
         return new ResponseEntity<>(couriersSettingsService.insertCSNewType(couriersSettings), HttpStatus.CREATED);
     }
     @DeleteMapping("/{type}")

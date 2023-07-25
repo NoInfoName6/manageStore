@@ -28,6 +28,7 @@ public class CouriersSettingsServiceImpl implements  CouriersSettingsService{
         return couriersSettingsDao.insert(couriersSettings);
     }
 
+
     @Override
     public CouriersSettings updateExistCS(String type, HashMap<String, String> map) {
         return couriersSettingsDao.findAndModify(type, map);
