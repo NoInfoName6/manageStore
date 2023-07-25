@@ -43,6 +43,6 @@ public class MongoConfig {
         return new MongoTemplate(mongo(), configProp.getDbName() );
     }
 
-    @Bean
-    public CouriersSettingsDao couriersSettingsDao(){return new CouriersSettingsDao();}
+    /*@Bean
+    public CouriersSettingsDao couriersSettingsDao(){return new CouriersSettingsDao();}*/
 }

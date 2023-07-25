@@ -58,6 +58,7 @@ public class CouriersSettingsDaoTest {
     @Order(20)
     public void findAll() {
         List<CouriersSettings> couriersSettings = couriersSettingsDao.findAll();
+        couriersSettings.forEach(t->System.out.println(t));
         assertNotNull(couriersSettings);
     }
 
@@ -86,11 +87,11 @@ public class CouriersSettingsDaoTest {
     }
 
     @Test
-    @Order(50)
+    @Order(7)
     public void removeAll() {
         for (String s : type) {
             assertTrue(couriersSettingsDao.delete(s));
         }
-        //insert();
+        insert();
     }
 }

@@ -36,16 +36,16 @@ public class CouriersSettingsDao {
     //CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
     //CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
 
-    CouriersSettings insert(CouriersSettings settings){
+    public CouriersSettings insert(CouriersSettings settings){
         return template.insert(settings, properties.collectionOne);
     }
 
-    boolean delete(String type){
+    public boolean delete(String type){
         Query query = new Query();
         query.addCriteria(Criteria.where("type").is(type));
         return template.remove(query, CouriersSettings.class, properties.collectionOne).wasAcknowledged();
     }
-    List<CouriersSettings> findAll() {
+    public List<CouriersSettings> findAll() {
         /*MongoDatabase database = client.getDatabase(properties.getDbName()).withCodecRegistry(pojoCodecRegistry);
         MongoCollection<CouriersSettings> collection = database.getCollection(properties.collectionOne, CouriersSettings.class);
         List<CouriersSettings> list = new ArrayList<>();
@@ -54,13 +54,13 @@ public class CouriersSettingsDao {
         return template.findAll(CouriersSettings.class, properties.collectionOne);
     }
 
-    CouriersSettings findByType(String type){
+    public CouriersSettings findByType(String type){
         Query query = new Query();
         query.addCriteria(Criteria.where("type").is(type));
         return template.findOne(query, CouriersSettings.class, properties.collectionOne);
     }
 
-    CouriersSettings findAndModify (String type, HashMap<String,String> map){
+    public CouriersSettings findAndModify (String type, HashMap<String,String> map){
         Query query = new Query();
         query.addCriteria(Criteria.where("type").is(type));
         Update update = new Update();
